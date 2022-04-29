@@ -1,0 +1,33 @@
+﻿@model List<ABPosSolutions.TechnicalTest.Domain.Building>
+@{
+    ViewData["Title"] = "Buildings";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    int index = 1;
+}
+
+<a asp-action="Detail" asp-controller="Building" class="btn-primary btn">Create Building</a>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Names</th>
+      <th scope="col">Address</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <th scope="row">@(index++)</th>
+            <td>@item.BuildingName</td>
+            <td>@item.Address</td>
+            <td>
+                <a class="btn-success btn" asp-action="Detail" asp-controller="Building" asp-route-id="@item.Id">Detail</a>
+            </td>
+        </tr>
+    }
+  </tbody>
+</table>
+

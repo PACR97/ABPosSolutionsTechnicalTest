@@ -1,0 +1,36 @@
+﻿@model List<ABPosSolutions.TechnicalTest.Domain.Inspection>
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Inspections";
+    int index = 1;
+}
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Description</th>
+      <th scope="col">Inspection Type</th>
+      <th scope="col">Building</th>
+      <th scope="col">Status</th>
+      <th scope="col">User</th>
+      <th scope="col">Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <th scope="row">@(index++)</th>
+            <td>@item.Description</td>
+            <td>@item.InspectionType!.TypeName</td>
+            <td>@item.InspectionType!.Building!.BuildingName</td>
+            <td>@item.Status!.StatusName</td>
+            <td>@item.UserId</td>
+            <td>@item.Date.ToString("d")</td>
+        </tr>
+    }
+  </tbody>
+</table>
