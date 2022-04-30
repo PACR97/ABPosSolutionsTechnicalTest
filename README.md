@@ -1,8 +1,8 @@
 # ABPosSolutionsTechnicalTest
 
 ## Users and passwords
-Inspectors: username: inspector@localhost.com - password: Inspector123$
-Supervisors: username: supervisor@localhost.com - password: Supervisor123$
+- Inspectors: username: inspector@localhost.com - password: Inspector123$
+- Supervisors: username: supervisor@localhost.com - password: Supervisor123$
 
 Para ejecutar la migracion de Identity se debe utilizar el siguiente comando en la consola de administrador de paquetes Nuget:
 Update-Database -Context ApplicationIdentityDbContext
