@@ -116,6 +116,13 @@ namespace ABPosSolutions.TechnicalTest.Web.Areas.Identity.Pages.Account
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User logged in.");
+                    if (User.IsInRole("Supervisor"))
+                    {
+                        returnUrl = "/Supervisor/Index";
+                    }else if (User.IsInRole("Inspector"))
+                    {
+                        returnUrl = "/Inspector/Index";
+                    }
                     return LocalRedirect(returnUrl);
                 }
                 if (result.RequiresTwoFactor)

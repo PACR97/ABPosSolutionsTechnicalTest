@@ -1,0 +1,10 @@
+﻿@model List<ABPosSolutions.TechnicalTest.Common.Outputs.UsersWithInspectionsCountOutputDto>
+
+<ul>
+    @foreach (var item in Model)
+    {
+        <li>
+            <strong>@item.UserId</strong> - <strong>@item.QuantityInspections</strong>
+        </li>
+    }
+</ul>

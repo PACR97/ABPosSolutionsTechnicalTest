@@ -124,6 +124,7 @@ namespace ABPosSolutions.TechnicalTest.Web.Areas.Identity.Pages.Account
         public async Task OnGetAsync(string returnUrl = null)
         {
             Roles = _roleManager.Roles.ToList();
+            Roles.RemoveAll(x => x.Name.ToLower() == "admin");
             ReturnUrl = returnUrl;
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
         }

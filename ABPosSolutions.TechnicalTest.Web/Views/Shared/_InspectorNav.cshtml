@@ -1,0 +1,21 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+
+<ul class="navbar-nav flex-grow-1">
+    @if (SignInManager.IsSignedIn(User) && User.IsInRole("Inspector"))
+    {
+        <li class="nav-item">
+            <a 
+            class="nav-link text-dark" 
+            asp-controller="Inspector" 
+            asp-action="Index">My Inspections</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-dark" 
+            asp-controller="Inspector" 
+            asp-action="CreateInspection">Create Inspection</a>
+        </li>
+    }
+</ul>

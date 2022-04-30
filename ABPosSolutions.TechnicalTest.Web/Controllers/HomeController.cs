@@ -15,6 +15,13 @@ namespace ABPosSolutions.TechnicalTest.Web.Controllers
 
         public IActionResult Index()
         {
+            if (User.IsInRole("Inspector"))
+            {
+                return RedirectToAction("Index", "Inspector");
+            }else if (User.IsInRole("Supervisor"))
+            {
+                return RedirectToAction("Index", "Supervisor");
+            }
             return View();
         }
 

@@ -36,7 +36,7 @@ namespace ABPosSolutions.TechnicalTest.Infrastructure.Repos
 
         public Task<int> TotalInspections(string statusId)
         {
-            throw new NotImplementedException();
+            return context.Inspections.CountAsync(x => x.StatusId == statusId);
         }
     }
 }

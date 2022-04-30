@@ -1,0 +1,58 @@
+﻿@model ABPosSolutions.TechnicalTest.Web.Models.SupervisorIndexVm
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-sm-1 col-md-4 col-lg-4 col xl-4 mt-2">
+        <div class="card" style="width: 18rem; height:175px">
+          <div class="card-body">
+            <h5 class="card-title">Total Inspections Satisfactory</h5>
+
+                <strong class="text-success">@Model.TotalSatisfactory.TotalInspections</strong>
+            
+          </div>
+        </div>
+    </div>
+    <div class="col-sm-1 col-md-4 col-lg-4 col xl-4 mt-2">
+        <div class="card" style="width: 18rem; height:175px">
+          <div class="card-body">
+            <h5 class="card-title">Total Inspections Unsatisfactory</h5>
+
+                <strong class="text-success">@Model.TotalUnsatisfactory.TotalInspections</strong>
+            
+          </div>
+        </div>
+    </div>
+    <div class="col-sm-1 col-md-4 col-lg-4 col xl-4 mt-2">
+        <div class="card" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">Users with more satisfactory inspections</h5>
+                <div id="containerUsersWithMoreSatisfyingInspections">
+                    <partial name="_UsersInspectionsCount" model="@Model.UsersWithMoreSatisfyingInspections"/>
+                </div>
+            <button data-url="@Url.Action("RefreshUsersWithInspectionsCount","Supervisor",new{moreSatisfying=true})" 
+            id="btnRefreshUsersWithMoreSatisfyingInspections" href="#" class="btn btn-primary">Refresh</button>
+          </div>
+        </div>
+    </div>
+
+    <div class="col-sm-1 col-md-4 col-lg-4 col xl-4 mt-2">
+        <div class="card" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">Users with less satisfactory inspections</h5>
+                <div id="containerUsersWithLessSatisfyingInspections">
+                    <partial name="_UsersInspectionsCount" model="@Model.UsersWithLessSatisfyingInspections"/>
+                </div>
+            <button 
+            data-url="@Url.Action("RefreshUsersWithInspectionsCount","Supervisor",new{moreSatisfying=false})" 
+            id="btnRefreshUsersWithLessSatisfyingInspections" href="#" class="btn btn-primary">Refresh</button>
+          </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script asp-append-version="true" src="~/js/Supervisor.js"></script>
+}

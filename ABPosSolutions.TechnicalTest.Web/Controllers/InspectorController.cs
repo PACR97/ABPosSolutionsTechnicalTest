@@ -13,7 +13,7 @@ using System.Security.Claims;
 
 namespace ABPosSolutions.TechnicalTest.Web.Controllers
 {
-    [Authorize]
+    [Authorize(Roles ="Inspector")]
     public class InspectorController : Controller
     {
         private readonly IMediator mediator;
