@@ -11,8 +11,8 @@ Para ejecutar la migracion de la Aplicacion se debe utilizar el siguiente comand
 - Update-Database -Context ApplicationDbContext
 
 ### Tecnologias utilizadas
-Patron Mediator con CQRS
-Patron Repository
-Aplicacion MVC .Net 6
-.Net Identity
-MSSQL LocalDb
+- Patron Mediator con CQRS
+- Patron Repository
+- Aplicacion MVC .Net 6
+- .Net Identity
+- MSSQL LocalDb
